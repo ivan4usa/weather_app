@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+            integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/styles.css">
+        <link type="image/png" sizes="16x16" rel="icon" href="../images/favicons/favicon-16x16.png">
+        <link type="image/png" sizes="32x32" rel="icon" href="../images/favicons/favicon-16x16.png">
+        <link type="image/png" sizes="192x192" rel="icon" href="../images/favicons/android-chrome-192x192.png">
+        <link type="image/png" sizes="512x512" rel="icon" href="../images/favicons/android-chrome-512x512.png">
+        <link sizes="180x180" rel="apple-touch-icon" href="../images/favicons/apple-touch-icon.png">
+        <title>Weather by zip code</title>
+    </head>
+    <body>
+        <div class="container" id="container">
+            <!-- Card with Zip Code input -->
+            <div class="card bg-dark bg-gradient my-card">
+                <div class="card-body m-auto p-2 d-flex justify-content-center">
+                    <input id="zipCodeInput" class="form-control form-control-sm" type="text" name="zip" placeholder="US Zip Code">
+                </div>
+            </div>
+
+            <!-- Card with weather -->
+            <div id="weather" class="card bg-dark bg-gradient my-card d-none">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h2 id="city" class="text-warning my-auto">Baraboo, WI</h2>
+                    <span id="updated" class="text-white fs-6">Updated 7/1/21</span>
+                </div>
+                <div class="card-body bg-primary pt-0 pb-2">
+                    <div class="row">
+                        <div class="col-4 picture-area m-auto">
+                            <div id="picture"></div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <div class="col-12 col-sm-8 d-flex justify-content-between align-items-center">
+                                    <span id="temperature" class="text-white temperature"></span>
+                                    <div id="temperatureIcon"></div>
+                                    <div class="d-flex flex-column m-auto">
+
+                                        <div class="form-check p-0">
+                                            <input class="radio-input" type="radio" name="temperature" value="fahrenheit"
+                                                id="fahrenheit" onclick="changeMeasurement(event);">
+                                            <label class="radio-label" for="fahrenheit">
+                                                F
+                                            </label>
+                                        </div>
+                                        <div class="form-check p-0">
+                                            <input class="radio-input" type="radio" name="temperature" value="celsius"
+                                                id="celsius" onclick="changeMeasurement(event);" checked>
+                                            <label class="radio-label" for="celsius">
+                                                C
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 d-flex flex-column justify-content-center align-items-start">
+                                    <div class="text-white fs-5" id="humidity"></div>
+                                    <div class="text-white fs-5" id="dewPoint"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8 d-flex align-items-center">
+                                    <h3 class="text-warning fs-4 m-0 me-2">Wind: </h3>
+                                    <span class="text-white" id="windSpeed"></span>
+                                    <div class="text-white" id="windy"></div>
+                                </div>
+                                <div class="col-4 d-flex align-items-center justify-content-center">
+                                    <div class="text-white fs-1" id="windDirection"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="card bg-dark bg-gradient my-card d-none"></div>
+
+            <!-- Spinner -->
+            <div id="spinner" class="card bg-dark bg-gradient my-card d-none">
+                <div class="spinner-grow my-2 mx-auto text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <script src="js/init.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
