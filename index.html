@@ -30,54 +30,91 @@
             <!-- Card with weather -->
             <div id="weather" class="card bg-dark bg-gradient my-card d-none">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h2 id="city" class="text-warning my-auto">Baraboo, WI</h2>
-                    <span id="updated" class="text-white fs-6">Updated 7/1/21</span>
+                    <h2 id="city" class="text-warning my-auto"></h2>
+                    <span id="updated" class="text-white fs-6"></span>
                 </div>
                 <div class="card-body bg-primary pt-0 pb-2">
                     <div class="row">
-                        <div class="col-4 picture-area m-auto">
-                            <div id="picture"></div>
+                        <div class="col-4 p-0">
+                            <div class="h-50 picture-area m-auto">
+                                <div id="picture"></div>
+                            </div>
+                            <div class="h-50 d-flex flex-column justify-content-evenly">
+                                <div class="text-white fs-6 text-center mt-2" id="condition"></div>
+                                <div class="text-white text-center fs-1 my-2" id="windDirection"></div>
+                            </div>
                         </div>
                         <div class="col-8">
-                            <div class="row">
-                                <div class="col-12 col-sm-8 d-flex justify-content-between align-items-center">
-                                    <span id="temperature" class="text-white temperature"></span>
-                                    <div id="temperatureIcon"></div>
-                                    <div class="d-flex flex-column m-auto">
-
-                                        <div class="form-check p-0">
-                                            <input class="radio-input" type="radio" name="temperature" value="fahrenheit"
-                                                id="fahrenheit" onclick="changeMeasurement(event);">
-                                            <label class="radio-label" for="fahrenheit">
-                                                F
-                                            </label>
-                                        </div>
-                                        <div class="form-check p-0">
-                                            <input class="radio-input" type="radio" name="temperature" value="celsius"
-                                                id="celsius" onclick="changeMeasurement(event);" checked>
-                                            <label class="radio-label" for="celsius">
-                                                C
-                                            </label>
-                                        </div>
-                                    </div>
+                            <div class="d-flex justify-content-between w-100">
+                                <div>
+                                    <div id="temperatureIcon" class="mx-1"></div>
+                                    <span id="temperatureCelsius" class="text-white temperature"></span>
+                                    <span class="text-warning fs-5">C</span>
                                 </div>
-                                <div class="col-12 col-sm-4 d-flex flex-column justify-content-center align-items-start">
-                                    <div class="text-white fs-5" id="humidity"></div>
-                                    <div class="text-white fs-5" id="dewPoint"></div>
+                                <div>
+                                    <span id="temperatureFahrenheit" class="text-white temperature"></span>
+                                    <span class="text-warning fs-5">F</span>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-8 d-flex align-items-center">
-                                    <h3 class="text-warning fs-4 m-0 me-2">Wind: </h3>
-                                    <span class="text-white" id="windSpeed"></span>
-                                    <div class="text-white" id="windy"></div>
-                                </div>
-                                <div class="col-4 d-flex align-items-center justify-content-center">
-                                    <div class="text-white fs-1" id="windDirection"></div>
-                                </div>
-                            </div>
+                            <table class="table table-sm table-borderless">
+                                <!-- Humidity -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">Humidity:</span>
+                                        <i class="d-block d-sm-none fas fa-tint text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="humidity"></td>
+                                    <td></td>
+                                </tr>
+                                <!-- UV Index -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">UV Index:</span>
+                                        <i class="d-block d-sm-none fas fa-sun text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="uv"></td>
+                                    <td></td>
+                                </tr>
+                                <!-- Precip -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">Precip:</span>
+                                        <i class="d-block d-sm-none fas fa-cloud-rain text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="precip_in"></td>
+                                    <td class="text-center text-white fs-6" id="precip_mm"></td>
+                                </tr>
+                                <!-- Pressure -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">Pressure:</span>
+                                        <i class="d-block d-sm-none fas fa-tachometer-alt text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="pressure_in"></td>
+                                    <td class="text-center text-white fs-6" id="pressure_mb"></td>
+                                </tr>
+                                <!-- Visibility -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">Visibility:</span>
+                                        <i class="d-block d-sm-none far fa-eye text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="vis_miles"></td>
+                                    <td class="text-center text-white fs-6" id="vis_km"></td>
+                                </tr>
+                                <!-- Wind -->
+                                <tr>
+                                    <td class="text-end">
+                                        <span class="d-none d-sm-block text-warning fs-6">Wind:</span>
+                                        <i class="d-block d-sm-none fas fa-wind text-warning"></i>
+                                    </td>
+                                    <td class="text-center text-white fs-6" id="wind_mph"></td>
+                                    <td class="text-center text-white fs-6" id="wind_kph"></td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
+                    <div class="row" id="forecast"></div>
                 </div>
             </div>
 
@@ -91,7 +128,8 @@
                 </div>
             </div>
         </div>
-        <script src="js/init.js"></script>
+        <!-- <script src="js/init.js"></script> -->
+        <script src="js/weatherapi.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
