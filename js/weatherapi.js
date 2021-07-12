@@ -80,7 +80,6 @@ function showErrorMessage(errorMessage) {
 }
 
 function showWeatherInfo(data) {
-    console.log(data);
     weather.classList.remove('d-none');
     city.innerText = data.location.name + ', ' + data.location.region;
     updated.innerText = new Date(data.current.last_updated).toLocaleDateString();
