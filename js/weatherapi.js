@@ -5,7 +5,6 @@ const container = document.getElementById('container');
 const zipCodeInput = document.getElementById('zipCodeInput');
 const weather = document.getElementById('weather');
 const city = document.getElementById('city');
-const updated = document.getElementById('updated');
 const picture = document.getElementById('picture');
 const condition = document.getElementById('condition');
 const temperatureCelsius = document.getElementById('temperatureCelsius');
@@ -82,7 +81,6 @@ function showErrorMessage(errorMessage) {
 function showWeatherInfo(data) {
     weather.classList.remove('d-none');
     city.innerText = data.location.name + ', ' + data.location.region;
-    updated.innerText = new Date(data.current.last_updated).toLocaleDateString();
     condition.innerText = data.current.condition.text;
     let icon = getIcon(data);
     picture.innerHTML = `<img src="../images/${icon}" alt="weather icon" class="img-fluid">`;
@@ -196,7 +194,6 @@ function getIcon(weather) {
 
 function cleanPreviousResult() {
     city.innerText = '';
-    updated.innerText = '';
     condition.innerText = '';
     picture.innerHTML = '';
     temperatureCelsius.innerHTML = '';
@@ -213,6 +210,8 @@ function cleanPreviousResult() {
     wind_kph.innerHTML = '';
     wind_mph.innerHTML = '';
     windDirection.innerHTML = '';
+    forecast.innerHTML = '';
+
     error.innerHTML = '';
     if (!error.classList.contains('d-none')) {
         error.classList.add('d-none');

@@ -29,9 +29,8 @@
 
             <!-- Card with weather -->
             <div id="weather" class="card bg-dark bg-gradient my-card d-none">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex justify-content-center align-items-center">
                     <h2 id="city" class="text-warning my-auto"></h2>
-                    <span id="updated" class="text-white fs-6"></span>
                 </div>
                 <div class="card-body bg-primary pt-0 pb-2">
                     <div class="row">
@@ -45,13 +44,14 @@
                             </div>
                         </div>
                         <div class="col-8">
+                            <!-- Temperature -->
                             <div class="d-flex justify-content-between w-100">
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <div id="temperatureIcon" class="mx-1"></div>
                                     <span id="temperatureCelsius" class="text-white temperature"></span>
                                     <span class="text-warning fs-5">C</span>
                                 </div>
-                                <div>
+                                <div class="d-flex align-items-center">
                                     <span id="temperatureFahrenheit" class="text-white temperature"></span>
                                     <span class="text-warning fs-5">F</span>
                                 </div>
